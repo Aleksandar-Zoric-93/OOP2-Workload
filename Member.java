@@ -3,10 +3,11 @@
  * mutator, accessor and constructor methods, and also a toString() method to 
  * display it in a specific format */
  
- public class Member{
+ import java.io.*;
+ 
+ public class Member implements Serializable{
  	
  	//Attributes
-		//Private
  	private String name;
  	private String address;
  	private int dob;
