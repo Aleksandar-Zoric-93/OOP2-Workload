@@ -1,6 +1,7 @@
 //Aleksandar Zoric
-/* This program will create the CreditCard class for the project.  It will contain
- * mutator, accessor and constructor methods, and also a toString() method to 
+/* This program will create the CreditCard class for the project. Each member will
+ * have a credit card associated with their credentials.
+ * It will contain mutator, accessor and constructor methods, and also a toString() method to 
  * display it in a specific format */
  
   import java.io.*;
