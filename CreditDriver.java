@@ -61,6 +61,9 @@ public class CreditDriver{
 					regCards.add(eachCard);
 					
 					//Saving Data
+					
+					JOptionPane.showMessageDialog(null,"Your details have been saved");
+					
 					File file1 = new File("savedCards.dat");
 				
 					FileOutputStream fos1 = new FileOutputStream(file1);

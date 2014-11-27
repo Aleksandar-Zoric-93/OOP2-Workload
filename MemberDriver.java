@@ -11,12 +11,24 @@ import javax.swing.*;
 import java.awt.*;
 
 public class MemberDriver{
-	public static void main(String args[]) throws Exception
+	public static void main(String args[])
 	{//Start of main
+	
+	GUIProject gui = new GUIProject();
+	gui.setVisible(true);
+		
+	}//End of main
+	
+	
+	
+	//Start of a method
+	public static void addMem()  throws IOException
+	{
 		List<Member> currentMembers = new ArrayList<Member>();
 		Member eachMember;
 		int option = JOptionPane.YES_NO_OPTION;
 		
+
 		//Start of adding members
 		while (option == JOptionPane.YES_OPTION)
 		{
@@ -59,6 +71,9 @@ public class MemberDriver{
 		
 			
 				//Saving Data
+				
+				JOptionPane.showMessageDialog(null,"Your details have been saved");
+				
 				File file = new File("savedMembers.dat");
 				
 				FileOutputStream fos = new FileOutputStream(file);
@@ -70,7 +85,6 @@ public class MemberDriver{
 				
 				
 			}//end adding members
-			
-		
-	}//End of main
+	}//End of a method
+	
 }//End of class
