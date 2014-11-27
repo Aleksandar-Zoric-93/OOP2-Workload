@@ -1,5 +1,5 @@
 //Aleksandar Zoric
-/* This program is the driver program for Member.  Here the members will be stored in
+/* This program is the driver program for Member class.  Here the members will be stored in
  * an 'ArrayList' and saved to a .dat file which can be retrieved at a 
  * later stage.
 */
@@ -12,11 +12,10 @@ import java.awt.*;
 
 public class MemberDriver{
 	public static void main(String args[]) throws Exception
-	{
+	{//Start of main
 		List<Member> currentMembers = new ArrayList<Member>();
 		Member eachMember;
 		int option = JOptionPane.YES_NO_OPTION;
-		int answer;
 		
 		//Start of adding members
 		while (option == JOptionPane.YES_OPTION)
@@ -32,29 +31,46 @@ public class MemberDriver{
 			String dob;
 			dob = JOptionPane.showInputDialog("Please enter your Date of Birth(day/month/year): ");
 			
-			double phone;
-			phone = Double.parseDouble(JOptionPane.showInputDialog("Please enter your phone number: "));
+			String phone;
+			phone = JOptionPane.showInputDialog("Please enter your phone number: ");
 			
 			String email;
 			email = JOptionPane.showInputDialog("Please enter your email: ");
 			
 			eachMember = new Member(name,address,dob,phone,email);
 			
-			answer = JOptionPane.showConfirmDialog(null,eachMember.toString() + "Is this correct? If so, click 'yes' to proceed.(Yes/No) ");
+			//Display details entered
+			JOptionPane.showMessageDialog(null,"This is the details you entered: \n\n" + 
+												eachMember.toString());
 			
-				if(answer == JOptionPane.YES_OPTION)
-				{
-					currentMembers.add(eachMember);	
-					option = JOptionPane.showConfirmDialog(null,"Do you wish to add another member? (Yes/No) ");
-				}
+		
+			//Change details
+			option = JOptionPane.showConfirmDialog(null,"Do you wish to change your details? (Yes/No) ");
+					
 				
-				else if(answer == JOptionPane.CANCEL_OPTION)
-				{
-					System.exit(0);
-				}
+					if(option == JOptionPane.CANCEL_OPTION)
+					{
+						System.exit(0);
+					}
+				
+				
+			
+					currentMembers.add(eachMember);
+		
+			
+				//Saving Data
+				File file = new File("savedMembers.dat");
+				
+				FileOutputStream fos = new FileOutputStream(file);
+		
+				ObjectOutputStream oos = new ObjectOutputStream(fos);
+				oos.writeObject(currentMembers);
+				oos.close();//End of saving data
+				
+				
 				
 			}//end adding members
 			
 		
-	}
-}
+	}//End of main
+}//End of class

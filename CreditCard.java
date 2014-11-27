@@ -12,27 +12,29 @@
  	private String forename;
  	private String surname;
  	private long cardNumber;
- 	private int expiryDate;
+ 	private String expiryDate;
  	private int cvv;
+ 	private int balance;
  	
  	
  		
  		//Constructors
  	public CreditCard()
  	{
- 		this("Unknown","Unknown",0,0,0);	
+ 		this("Unknown","Unknown",0,"",0,0);	
  	}
  		
  		
 
  	public CreditCard(String forename, String surname, 
- 				  long cardNumber, int expiryDate, int cvv)
+ 				  long cardNumber, String expiryDate, int cvv, int balance)
  	{
  		setForename(forename);
  		setSurname(surname);
  		setCardNumber(cardNumber);
  		setExpiry(expiryDate);
- 		setCVV(cvv);	
+ 		setCVV(cvv);
+ 		setBalance(balance);	
  	}
  	
  	
@@ -53,7 +55,7 @@
  		this.cardNumber = cardNumber;
  	}
  	
- 	public void setExpiry(int expiryDate)
+ 	public void setExpiry(String expiryDate)
  	{
  		this.expiryDate = expiryDate;
  	}
@@ -61,6 +63,11 @@
  	public void setCVV(int cvv)
  	{
  		this.cvv = cvv;
+ 	}
+ 	
+ 		public void setBalance(int balance)
+ 	{
+ 		this.balance = balance;
  	}
  	
  	
@@ -81,7 +88,7 @@
  		return cardNumber;
  	}
  	
- 	public int getExpiryDate()
+ 	public String getExpiryDate()
  	{
  		return expiryDate;
  	}
@@ -91,13 +98,18 @@
  		return cvv;
  	}
  	
+ 	public int getBalance()
+ 	{
+ 		return balance;
+ 	}
+ 	
  	
  	
  	
  		//toString
  	public String toString()
  	{
- 		return String.format("Forename: %s\nSurname: %s\nCard Number: %d\nExpiry Date: %d\nCVV number: %d",
- 							   	getForename(),getSurname(),getCardNumber(),getExpiryDate(),getCVV());
+ 		return String.format("Forename: %s\nSurname: %s\nCard Number: %d\nExpiry Date: %s\nCVV number: %d\n\nCurrent Balance: € %d",
+ 							   	getForename(),getSurname(),getCardNumber(),getExpiryDate(),getCVV(),getBalance());
  	}
   }

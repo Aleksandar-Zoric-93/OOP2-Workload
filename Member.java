@@ -10,8 +10,8 @@
  	//Attributes
  	private String name;
  	private String address;
- 	private int dob;
- 	private double phone;
+ 	private String dob;
+ 	private String phone;
  	private String email;
  	
  
@@ -19,12 +19,12 @@
  	
  		public Member()
  		{
- 			this("Unknown","Default",0,0,"Default");	
+ 			this("Unknown","Default","Unknown","","Default");	
  		}
  		
  		
  	
- 		public Member(String name, String address, int dob, double phone, String email)
+ 		public Member(String name, String address, String dob, String phone, String email)
  		{
  			setName(name);
  			setAddress(address);
@@ -45,12 +45,12 @@
  			this.address = address;
  		}
  		
- 		public void setDOB(int dob)
+ 		public void setDOB(String dob)
  		{
  			this.dob = dob;
  		}
  		
- 		public void setPhone(double Phone)
+ 		public void setPhone(String Phone)
  		{
  			this.phone = phone;
  		}
@@ -72,12 +72,12 @@
  			return address;
  		}
  		
- 		public int getDOB()
+ 		public String getDOB()
  		{
  			return dob;
  		}
  		
- 		public double getPhone()
+ 		public String getPhone()
  		{
  			return phone;
  		}
@@ -92,7 +92,7 @@
  	//toString
  		public String toString()
  		{
- 			return String.format("Name: %s\nAddress: %s\nDate Of Birth: %d\nPhone: %d\nEmail: %s",
+ 			return String.format("Name: %s\nAddress: %s\nDate Of Birth: %s\nPhone: %s\nEmail: %s\n\n",
  							   	getName(),getAddress(),getDOB(),getPhone(),getEmail());
  		}
  		
