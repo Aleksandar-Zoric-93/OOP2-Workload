@@ -13,10 +13,18 @@ import java.awt.*;
 public class CreditDriver{
 	public static void main(String args[]) throws Exception
 	{//Start of main
+		GUIProject gui = new GUIProject();
+		gui.setVisible(true);
+	
+	}//End of main
+	
+	public static void addCardDriver()  throws IOException
+	{
+	
 		List<CreditCard> regCards = new ArrayList<CreditCard>();
 		CreditCard eachCard;
 		
-		int option = JOptionPane.YES_NO_OPTION;
+		int option = JOptionPane.YES_OPTION;
 		int balance = 0;
 		
 		//Start of adding cards
@@ -75,5 +83,6 @@ public class CreditDriver{
 				
 		
 	}//End of adding cards
-}//End of main
+	}//End of method
+
 }//End of class
