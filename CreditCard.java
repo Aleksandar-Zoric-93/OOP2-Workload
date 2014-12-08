@@ -8,20 +8,23 @@
   
   public class CreditCard implements Serializable{
  	
- 		//Attributes
+ 	//Attributes
  	private String forename;
  	private String surname;
  	private long cardNumber;
  	private String expiryDate;
  	private int cvv;
- 	private int balance;
+ 	private int balance = CreditDriver.currentBalance;
+ 	CreditDriver c1;
+ 	//end of Attributes
  	
  	
  		
- 		//Constructors
- 	public CreditCard()
+ 	//Constructor methods
+ 	public CreditCard(CreditDriver c1)
  	{
- 		this("Unknown","Unknown",0,"",0,0);	
+ 		this("Unknown","Unknown",0,"",0,CreditDriver.currentBalance);	
+ 		this.c1 = c1;
  	}
  		
  		
@@ -36,10 +39,11 @@
  		setCVV(cvv);
  		setBalance(balance);	
  	}
+ 	// end of Constructor methods
  	
  	
  	
- 		//Mutator
+ 	//Mutator methods
  	public void setForename(String forename)
  	{
  		this.forename = forename;
@@ -69,10 +73,11 @@
  	{
  		this.balance = balance;
  	}
+ 	// end of Mutator methods
  	
  	
  	
- 		//Accessor
+ 	//Accessor methods
  	public String getForename()
  	{
  		return forename;
@@ -102,14 +107,15 @@
  	{
  		return balance;
  	}
+ 	// end of Accessor methods
  	
  	
  	
  	
- 		//toString
+ 		//toString methods
  	public String toString()
  	{
- 		return String.format("Forename: %s\nSurname: %s\nCard Number: %d\nExpiry Date: %s\nCVV number: %d\n\nCurrent Balance: € %d",
- 							   	getForename(),getSurname(),getCardNumber(),getExpiryDate(),getCVV(),getBalance());
+ 		return String.format("Forename: %s\nSurname: %s\nCard Number: %d\nExpiry Date: %s\nCVV number: %d\n\n",
+ 							   	getForename(),getSurname(),getCardNumber(),getExpiryDate(),getCVV());
  	}
   }
